@@ -1,4 +1,6 @@
-<h1>Resumes</h1>
-<a href="/resumes/new">新增履歷</a>
-<a href="<%= new_resumes_path %>">新增履歷</a>
-<%= link_to "新增履歷", new_resumes_path %>
+<h1>Resume</h1>
+<%= link_to "新增履歷", new_resume_path %>
+
+<ul>
+  <%= render @resumes %>
+</ul>
