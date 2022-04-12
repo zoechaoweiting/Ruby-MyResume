@@ -1,3 +1,9 @@
   <li>
-    <%= resume.title %>
+    <%= link_to resume.title, resume_path(id: resume.id) %>
+    |
+    <%= link_to "X", resume_path(id: resume.id), method:"delete", data: {
+        confirm: "確定要刪除嗎？"
+    } %>
+    <!-- <%= link_to resume.title, resume_path(resume) %>
+    <%= link_to resume.title, resume %> -->
   </li>
