@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   # patch "/resumes/:id", to: "resumes#update"
   # put "/resumes/:id", to: "resumes#update"
 
+  get "/users/sign_up", to: "users#new"
+  # post "/users/", to: "users#creat"
+
   root "resumes#index"
 end
