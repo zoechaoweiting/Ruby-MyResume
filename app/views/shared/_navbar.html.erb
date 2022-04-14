@@ -1,9 +1,9 @@
 <nav>
   <div class="nav">
-    <div class="brand">厲害的履歷</div>
+    <div class="brand"><%= link_to "厲害的履歷", root_path %></div>
     <ul>
-        <li class="signup"><%= link_to "註冊", users_sign_up_path%></li>
-        <li class="signin"><%= link_to "登入", "#" %></li>
+        <li class="signup"><%= link_to "註冊", sign_up_users_path%></li>
+        <li class="signin"><%= link_to "登入", sign_in_users_path %></li>
     </ul>
   </div>
 </nav>

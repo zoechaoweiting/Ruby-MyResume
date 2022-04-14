@@ -10,9 +10,18 @@ Rails.application.routes.draw do
   # get "/resumes/:id/edit", to: "resumes#edit", as: "edit_resume"
   # patch "/resumes/:id", to: "resumes#update"
   # put "/resumes/:id", to: "resumes#update"
+  
+  resource :users, only: [:create] do
+    get :sign_up
+    get :sign_in
+  end
+  # 可以把下面這兩行包進去，因為sing_up是我們自定義的名字，所以是用個block包，而creat是本來resource就會產生的路徑之一，所以寫在上面
+  # get "/users/sign_up", to: "users#new"
+  # post "/users/", to: "users#create"
 
-  get "/users/sign_up", to: "users#new"
-  # post "/users/", to: "users#creat"
+  resources :sessions, only: [:create, :destroy] do
+  end
+  # 其實要建立在users的resource也是可以
 
   root "resumes#index"
 end

@@ -1,0 +1,13 @@
+<h1>會員登入</h1>
+
+<%= form_with(url: sessions_path, scope: "user", method: "post") do |form| %>
+  <div class="fields">
+      <%= form.label :account, "帳號" %>
+      <%= form.text_field :account, autocomplete: "off", placeholder: "請輸入 e-mail 或 username " %>
+  </div>
+  <div class="fields">
+      <%= form.label :password, "密碼" %>
+      <%= form.password_field :password %>
+  </div>
+  <%= form.submit "登入" %>
+<% end %>
