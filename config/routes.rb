@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :resumes
+  resources :resumes do
+    collection do
+      get :my
+    end
+  end
   # 上面這行等於下面八行
   # get "/resumes", to: "resumes#index"
   # get "/resumes/new", to: "resumes#new", as: "new_resume"
@@ -19,7 +23,7 @@ Rails.application.routes.draw do
   # get "/users/sign_up", to: "users#new"
   # post "/users/", to: "users#create"
 
-  resources :sessions, only: [:create, :destroy] do
+  resource :sessions, only: [:create, :destroy] do
   end
   # 其實要建立在users的resource也是可以
 
