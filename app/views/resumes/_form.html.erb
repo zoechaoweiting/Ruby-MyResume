@@ -3,9 +3,9 @@
     <%= form.label :title, "標題" %>
     <%= form.text_field :title, autocomplete: "off", autocus: true %>
 </div>
-<div class="fields">
+<div class="fields-content">
   <%= form.label :content, "內容" %>
-  <%= form.text_area :content %>
+  <%= form.text_area :content, data: { controller: "markdown-editor" } %>
 </div>
 <div class="fields">
   <%= form.label :status, "狀態" %>

@@ -5,7 +5,8 @@ class ResumesController < ApplicationController
 
   def index
     # render html: current_user
-    @resumes = Resume.all
+    # 如果是.all就會顯示全部的（包括草稿狀態的）
+    @resumes = Resume.published
   end
 
   def new
@@ -38,7 +39,7 @@ class ResumesController < ApplicationController
 
   def update
     if @resume.update(resume_params)
-      redirect_to resumes_path, notice: "修改成功"
+      redirect_to my_resumes_path, notice: "修改成功"
     else
       render action: :edit #這邊是借edit.erb那個檔案來渲染
     end
