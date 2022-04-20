@@ -28,6 +28,10 @@ class User < ApplicationRecord
     end
   end
 
+  def default_resume
+    resumes.last
+  end
+
   private
     def encrypt_password
       self.password = HelloKitty::Encoder.encode_password(self.password)

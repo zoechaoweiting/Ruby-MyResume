@@ -16,6 +16,11 @@ class UsersController < ApplicationController
   def sign_in 
   end
 
+  def default_resume
+    @user = User.find_by!(username: params[:user_id])
+    @resume = @user.default_resume
+  end
+
   private
     def user_params
       params.require(:user).permit(:email, :username, :password, :password_confirmation)

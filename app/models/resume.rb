@@ -1,4 +1,8 @@
 class Resume < ApplicationRecord
+  extend FriendlyId
+  friendly_id :random_slug, use: :slugged
+  # -> slug
+
 
   validates :title, presence: true
   validates :content, presence: true
@@ -17,4 +21,9 @@ class Resume < ApplicationRecord
       ["發布", "published"],
     ]
   end
+
+  private
+    def random_slug # 把網址上的履歷編號變亂數
+      [*"0".."9", *"a".."z", "-", "_"].sample(10).join
+    end
 end

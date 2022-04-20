@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     collection do
       get :my
     end
+
+    member do
+      patch :pin
+    end
   end
   # 上面這行等於下面八行
   # get "/resumes", to: "resumes#index"
@@ -26,6 +30,9 @@ Rails.application.routes.draw do
   resource :sessions, only: [:create, :destroy] do
   end
   # 其實要建立在users的resource也是可以
+
+  get "/@:user_id", to: "users#default_resume"
+  get "/@:user_i/:id", to: "resumes#show", as: "user_resume"
 
   root "resumes#index"
 end
