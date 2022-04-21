@@ -20,7 +20,7 @@ class ResumesController < ApplicationController
 
     if @resume.save
       # flash[:notice] = "新增成功"
-      redirect_to resumes_path, notice: "新增成功"
+      redirect_to my_resumes_path, notice: "新增成功"
     else
       render action: :new #這邊是借new.erb那個檔案來渲染 並非走回第五行
     end
@@ -57,7 +57,7 @@ class ResumesController < ApplicationController
 
   private
     def resume_params
-      params.require(:resume).permit(:title, :content, :status)
+      params.require(:resume).permit(:title, :content, :status, :photo)
     end
 
     def find_resume

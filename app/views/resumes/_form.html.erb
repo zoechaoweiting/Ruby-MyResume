@@ -3,6 +3,12 @@
     <%= form.label :title, "標題" %>
     <%= form.text_field :title, autocomplete: "off", autocus: true %>
 </div>
+
+<div class="fields">
+<%= form.label :photo, "照片" %>
+<%= form.file_field :photo %>
+</div>
+
 <div class="fields-content">
   <%= form.label :content, "內容" %>
   <%= form.text_area :content, data: { controller: "markdown-editor" } %>

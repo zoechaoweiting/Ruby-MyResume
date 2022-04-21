@@ -3,6 +3,7 @@ class Resume < ApplicationRecord
   friendly_id :random_slug, use: :slugged
   # -> slug
 
+  has_one_attached :photo
 
   validates :title, presence: true
   validates :content, presence: true
